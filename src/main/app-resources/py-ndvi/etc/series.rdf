@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:dclite4g="http://xmlns.com/2008/dclite4g#" xmlns:ical="http://www.w3.org/2002/12/cal/ical#" xmlns:ws="http://dclite4g.xmlns.com/ws.rdf#" xmlns:eop="http://earth.esa.int/eop" xmlns:opt="http://earth.esa.int/opt" xmlns:sar="http://earth.esa.int/sar" xmlns:atm="http://earth.esa.int/atm">
+<dclite4g:Series>
+<dc:identifier>myseries</dc:identifier>
+<dc:title>This is my dataset series title</dc:title>
+<dct:abstract>This is my dataset series abstract</dct:abstract>
+<dc:format>TIF</dc:format>
+</dclite4g:Series>
+</rdf:RDF>
