@@ -1,10 +1,17 @@
 #!/usr/bin/env python
-
+import site
 import os
 import sys
+
+site.addsitedir('/application/share/python/lib/python2.6/site-packages')
+#print sys.path
+#os.environ['PYTHONUSERBASE'] = '/application/share/python'
+
+#print 'Base:', site.USER_BASE
+#print 'Site:', site.USER_SITE
+
 import ndvi
 
-os.environ['PYTHONUSERBASE'] = '/application/share/python'
 sys.path.append('/usr/lib/ciop/python/')
 
 import cioppy as ciop
