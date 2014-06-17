@@ -149,7 +149,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							<environmentVariables>
-							 	<PYTHONUSERBASE>/application/share/</PYTHONUSERBASE>
+							 	<PYTHONUSERBASE>/application/share/python</PYTHONUSERBASE>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
@@ -279,7 +279,7 @@
 						<configuration>
 							<target>
 								<mkdir dir="${project.build.directory}/python/ndvi" />
-								<mkdir dir="/application/share/lib/python/site-packages/" />
+								<mkdir dir="/application/share/python/lib/python2.6/site-packages/" />
 							</target>
 						</configuration>
 						<goals>
