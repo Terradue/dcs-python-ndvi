@@ -159,7 +159,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>Python install app</id>
+						<id>Python install lib</id>
 						<phase>install</phase>
 						<goals>
 							<goal>exec</goal>
@@ -168,7 +168,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							<environmentVariables>
-							 	<PYTHONUSERBASE>/application/share/</PYTHONUSERBASE>
+							 	<PYTHONUSERBASE>/application/share/python</PYTHONUSERBASE>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>

@@ -13,7 +13,7 @@
   <workflow id="wf" title="step" abstract="workflow">
     <workflowVersion>1.0</workflowVersion>
     <node id="node_ndvi">
-      <job id="py-ndiv"/>
+      <job id="py-ndvi"/>
       <sources>
       <source refid="string:list" >value1,value2,value3</source>
   </sources>

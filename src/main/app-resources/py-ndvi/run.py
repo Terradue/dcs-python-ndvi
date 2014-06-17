@@ -2,8 +2,9 @@
 
 import os
 import sys
-import classes.GDALCalcNDVI as ndvi
+import ndvi
 
+os.environ['PYTHONUSERBASE'] = '/application/share/python'
 sys.path.append('/usr/lib/ciop/python/')
 
 import cioppy as ciop

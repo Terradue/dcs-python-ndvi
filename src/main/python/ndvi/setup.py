@@ -8,6 +8,8 @@ setup(name='ndvi',
       author_email='fabrice.brito@terradue.com',
       license='Apache 2.0',
       packages=['ndvi'],
-      zip_safe=False,
-      install_requires=[ "osgeo.gdal" ]
-)
+      zip_safe=False)
+
+#,
+#      install_requires=[ "osgeo" ]
+#)
