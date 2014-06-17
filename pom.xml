@@ -4,16 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.terradue.ciop.app</groupId>
-	<artifactId>eowb-cckp</artifactId>
+	<artifactId>dcs-python-ndvi</artifactId>
 	<packaging>rpm</packaging>
-	<name>eowb-cckp</name>
-	<description>eowb-cckp</description>
+	<name>dcs-python-ndvi</name>
+	<description>dcs-python-ndvi</description>
 	<version>0.1-SNAPSHOT</version>
 
 	<scm>
-		<connection>scm:git:git@github.com:Terradue/eowb-cckp.git</connection>
-		<developerConnection>scm:git:git@github.com:Terradue/eowb-cckp.git</developerConnection>
-		<url>https://github.com/Terradue/eowb-cckp</url>
+		<connection>scm:git:git@github.com:Terradue/dcs-python-ndvi.git</connection>
+		<developerConnection>scm:git:git@github.com:Terradue/dcs-python-ndvi.git</developerConnection>
+		<url>https://github.com/Terradue/dcs-python-ndvi</url>
 		<tag>HEAD</tag>
 	</scm>
 
