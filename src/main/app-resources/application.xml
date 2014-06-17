@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="app">
+  <jobTemplates>
+    <jobTemplate id="py-ndvi">
+      <streamingExecutable>/application/py-ndvi/run.py</streamingExecutable>
+      <defaultParameters>
+  </defaultParameters>
+      <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000000</property>
+      </defaultJobconf>
+    </jobTemplate>
+  </jobTemplates>
+  <workflow id="wf" title="step" abstract="workflow">
+    <workflowVersion>1.0</workflowVersion>
+    <node id="node_ndvi">
+      <job id="py-ndiv"/>
+      <sources>
+      <source refid="string:list" >value1,value2,value3</source>
+  </sources>
+      <parameters>
+</parameters>
+    </node>
+  </workflow>
+</application>
