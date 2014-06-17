@@ -125,6 +125,10 @@
 						<goals>
 							<goal>exec</goal>
 						</goals>
+						<environmentVariables>
+              <PYTHONUSERBASE>/application/share/python
+              </PYTHONUSERBASE>
+            </environmentVariables>
 						<configuration>
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
