@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<github.global.server>github</github.global.server>
-		<github.site.repositoryName>eowb-cckp</github.site.repositoryName>
+		<github.site.repositoryName>dcs-python-ndvi</github.site.repositoryName>
 		<github.site.repositoryOwner>Terradue</github.site.repositoryOwner>
 	</properties>
 
@@ -101,13 +101,13 @@
 										<include>setup.py</include>
 									</includes>
 								</resource>
-							<!--	<resource>
-									<directory>${basedir}/src/main/R/ReoWBcckp</directory>
+								<resource>
+									<directory>${basedir}/src/main/python/ndvi</directory>
 									<filtering>false</filtering>
 									<excludes>
 										<exclude>DESCRIPTION</exclude>
 									</excludes>
-								</resource>-->
+								</resource>
 							</resources>
 						</configuration>
 					</execution>
@@ -130,7 +130,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							 <environmentVariables>
-							 	<PYTHONUSERBASE>/application/share/</PYTHONUSERBASE>
+							 	<PYTHONUSERBASE>${project.build.directory}/python</PYTHONUSERBASE>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
