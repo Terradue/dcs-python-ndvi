@@ -125,9 +125,8 @@
 						<goals>
 							<goal>exec</goal>
 						</goals>
-						<environmentVariables>
-              <PYTHONUSERBASE>/application/share/python
-              </PYTHONUSERBASE>
+            <environmentVariables>
+              <PYTHONUSERBASE>/application/share/python</PYTHONUSERBASE>
             </environmentVariables>
 						<configuration>
 							<executable>python</executable>
