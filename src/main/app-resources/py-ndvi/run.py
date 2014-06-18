@@ -3,41 +3,48 @@ import site
 import os
 import sys
 
-# add the local packages where ndvi package is deployed
-site.addsitedir('/application/share/python/lib/python2.6/site-packages')
-
-# import the ndvi package 
-import ndvi
-
 # import the ciop functtons (e.g. copy, log)
 sys.path.append('/usr/lib/ciop/python/')
 import cioppy as ciop
 
+# add the local packages where ndvi package is deployed
+site.addsitedir('/application/share/python/lib/python2.6/site-packages')
+# import the ndvi package 
+import ndvi
+
 # write a log entry
 ciop.log('INFO', 'Calculating NDVI')
 
-# create an output folder for the results
+# create a local output folder for the NDVI results
 output.path = os.environ['TMPDIR'] + '/output' 
 os.makedirs(output.path)
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
+
+    # line contains a reference to a catalogue entry
     ciop.log('INFO', 'input: ' + line)
-
-    res = ciop.copy(line, os.environ['TMPDIR'])
-
-    ciop.log('DEBUG', 'local path:' + res[0].rstrip('\n'))    
     
+    # ciop.copy extracts the path from the reference and downloads the Landsat product
+    res = ciop.copy(line, os.environ['TMPDIR'])
     local.path = res[0].rstrip('\n')
-  
+
+    # print the Landsat local path in the log
+    ciop.log('DEBUG', 'local path:' + local.path )    
+    
+    # create the output name 
     output.name = output.path + '/' + os.path.splitext(os.path.basename(local.path))[0] + "_ndvi.tif"
     
     obj = ndvi.GDALCalcNDVI()
   
-    obj.calc_ndvi(res[0].rstrip(), '/tmp/pippo.tif')
+    obj.calc_ndvi(local.path, output.name)
 
-    pub = ciop.publish('/tmp/pippo.tif')
+    # use ciop.publish to publish the NDVI result 
+    # use the URL returned by ciop.publish as the catalogue online resource info
+    pub = ciop.publish(output.name)
 
+    # create the NDVI result metadata information 
+    # using ciop.casmeta
     metadata = [ "ical:dtstart=2001-01-10T14:00:00", 
                 "ical:dtend=2001-01-10T14:05:00",
                 "dc:identifier=mydataset",
