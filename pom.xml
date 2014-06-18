@@ -130,7 +130,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							 <environmentVariables>
-							 	<PYTHONPATH>${project.build.directory}/python</PYTHONPATH>
+							 	<PYTHONPATH>${project.build.directory}/python/lib</PYTHONPATH>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
