@@ -16,11 +16,11 @@ sys.path.append('/usr/lib/ciop/python/')
 
 import cioppy as ciop
 
-ciop.log('INFO', 'Hello World')
+ciop.log('INFO', 'Calculating NDVI')
 
-#myvar = ciop.getparam('param1')
-
-#ciop.log('DEBUG', 'value is: ' + myvar)
+# create an output folder for the results
+output.path = os.environ['TMPDIR'] + '/output' 
+os.makedirs(output.path)
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
