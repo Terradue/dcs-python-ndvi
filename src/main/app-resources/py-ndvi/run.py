@@ -35,8 +35,8 @@ for line in sys.stdin:
     # create the output name 
     output.name = output.path + '/' + os.path.splitext(os.path.basename(local.path))[0] + "_ndvi.tif"
     
+    # calculate the NDVI
     obj = ndvi.GDALCalcNDVI()
-  
     obj.calc_ndvi(local.path, output.name)
 
     # use ciop.publish to publish the NDVI result 
