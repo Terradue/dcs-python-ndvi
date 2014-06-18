@@ -135,7 +135,7 @@
 							<arguments>
 								<argument>setup.py</argument>
 								<argument>install</argument>
-								<argument>--user</argument>
+								<argument>--install-lib=${project.build.directory}/python/lib</argument>
 							</arguments>
 						</configuration>
 					</execution>
@@ -154,7 +154,7 @@
 							<arguments>
 								<argument>setup.py</argument>
 								<argument>install</argument>
-								<argument>--user</argument>
+								<argument>--install-lib=/application/share/python/lib</argument>
 							</arguments>
 						</configuration>
 					</execution>
@@ -260,7 +260,7 @@
 						<configuration>
 							<target>
 								<mkdir dir="${project.build.directory}/python/ndvi" />
-								<mkdir dir="/application/share/python/lib/python2.6/site-packages/" />
+								<mkdir dir="/application/share/python/lib" />
 							</target>
 						</configuration>
 						<goals>
