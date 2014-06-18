@@ -15,7 +15,7 @@
     <node id="node_ndvi">
       <job id="py-ndvi"/>
       <sources>
-      <source refid="string:list" >value1,value2,value3</source>
+      <source refid="string:list" >/tmp/L5043033_03319950627.img</source>
   </sources>
       <parameters>
 </parameters>
