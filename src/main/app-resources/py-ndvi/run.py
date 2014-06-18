@@ -3,19 +3,17 @@ import site
 import os
 import sys
 
+# add the local packages where ndvi package is deployed
 site.addsitedir('/application/share/python/lib/python2.6/site-packages')
-#print sys.path
-#os.environ['PYTHONUSERBASE'] = '/application/share/python'
 
-#print 'Base:', site.USER_BASE
-#print 'Site:', site.USER_SITE
-
+# import the ndvi package 
 import ndvi
 
+# import the ciop functtons (e.g. copy, log)
 sys.path.append('/usr/lib/ciop/python/')
-
 import cioppy as ciop
 
+# write a log entry
 ciop.log('INFO', 'Calculating NDVI')
 
 # create an output folder for the results
