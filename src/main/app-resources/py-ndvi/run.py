@@ -53,21 +53,12 @@ for line in sys.stdin:
                 "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
                 "dclite4g:onlineResource=" + pub[0].rstrip()]
 
-    #metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
-    #            "ical:dtend=" + ciop.casmeta("ical:dtend", line)[0].rstrip('\n'),
-    #            "dc:identifier=" + identifier + "_NDVI",
-    #            "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
-    #            "dclite4g:onlineResource=http://some.host.com/myproduct.tif"]   
- 
  
     ciop.log('DEBUG', 'Register the result in the sandbox catalogue')
-
     # use ciop.register providing the sandbox local catalogue and 
     # a series template
     ciop.register('http://localhost/catalogue/sandbox/rdf',
                     'file:///application/py-ndvi/etc/series.rdf',
                     metadata)
-
-    #ciop.publish(output_name, metalink = True)
 
 ciop.log('INFO', 'Done my share of the work!')

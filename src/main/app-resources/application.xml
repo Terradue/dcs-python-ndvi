@@ -15,7 +15,7 @@
     <node id="node_ndvi">
       <job id="py-ndvi"/>
       <sources>
-      <source id="landsat" title="Landsat product reference" abstract="Landsat catalogue references" scope="runtime" refid="string:list" >http://catalogue.terradue.int/catalogue/search/LANDSAT_SAMPLES/L5043033_03319950627/rdf</source>
+      <source id="landsat" title="Landsat product reference" abstract="Landsat catalogue references" scope="runtime" refid="string:list" >http://catalogue.terradue.int/catalogue/search/LANDSAT_SAMPLES/LT50430331995178XXX03/rdf</source>
   </sources>
       <parameters>
 </parameters>
