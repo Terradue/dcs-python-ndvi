@@ -8,7 +8,7 @@ sys.path.append('/usr/lib/ciop/python/')
 import cioppy as ciop
 
 # add the local packages where ndvi package is deployed
-site.addsitedir('/application/share/python/lib/python2.6/site-packages')
+site.addsitedir('/application/share/python/lib')
 # import the ndvi package 
 import ndvi
 
@@ -60,5 +60,7 @@ for line in sys.stdin:
     ciop.register('http://localhost/catalogue/sandbox/rdf',
                     'file:///application/py-ndvi/etc/series.rdf',
                     metadata)
+
+    ciop.publish(output_name, metalink=True)
 
 ciop.log('INFO', 'Done my share of the work!')
