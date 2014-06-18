@@ -29,7 +29,11 @@ for line in sys.stdin:
     res = ciop.copy(line, os.environ['TMPDIR'])
 
     ciop.log('DEBUG', 'local path:' + res[0].rstrip('\n'))    
+    
+    local.path = res[0].rstrip('\n')
   
+    output.name = output.path + '/' + os.path.splitext(os.path.basename(local.path))[0] + "_ndvi.tif"
+    
     obj = ndvi.GDALCalcNDVI()
   
     obj.calc_ndvi(res[0].rstrip(), '/tmp/pippo.tif')
