@@ -149,12 +149,12 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							<environmentVariables>
-							 	<PYTHONPATH>/application/share/python</PYTHONPATH>
+							 	<PYTHONPATH>/application/share/python/lib</PYTHONPATH>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
 								<argument>install</argument>
-								<argument>--install-lib=/application/share/python</argument>
+								<argument>--install-lib=/application/share/python/lib</argument>
 							</arguments>
 						</configuration>
 					</execution>
