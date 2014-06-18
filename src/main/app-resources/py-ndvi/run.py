@@ -42,8 +42,9 @@ for line in sys.stdin:
 
     # use ciop.publish to publish the NDVI result 
     # use the URL returned by ciop.publish as the catalogue online resource info
-    pub = ciop.publish(output_name)
+    pub = ciop.publish(output_name, driver='s3')
 
+    ciop.log('DEBUG', pub[0])
     # create the NDVI result metadata information 
     # using ciop.casmeta function to access the input product metadata
     metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
@@ -52,11 +53,11 @@ for line in sys.stdin:
                 "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
                 "dclite4g:onlineResource=" + pub[0].rstrip()]
 
-    metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
-                "ical:dtend=" + ciop.casmeta("ical:dtend", line)[0].rstrip('\n'),
-                "dc:identifier=" + identifier + "_NDVI",
-                "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
-                "dclite4g:onlineResource=http://some.host.com/myproduct.tif"]   
+    #metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
+    #            "ical:dtend=" + ciop.casmeta("ical:dtend", line)[0].rstrip('\n'),
+    #            "dc:identifier=" + identifier + "_NDVI",
+    #            "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
+    #            "dclite4g:onlineResource=http://some.host.com/myproduct.tif"]   
  
  
     ciop.log('DEBUG', 'Register the result in the sandbox catalogue')
@@ -67,6 +68,6 @@ for line in sys.stdin:
                     'file:///application/py-ndvi/etc/series.rdf',
                     metadata)
 
-    ciop.publish(output_name, metalink = True)
+    #ciop.publish(output_name, metalink = True)
 
 ciop.log('INFO', 'Done my share of the work!')
