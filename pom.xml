@@ -130,7 +130,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							 <environmentVariables>
-							 	<PYTHONPATH>${project.build.directory}/python</PYTHONUSERBASE>
+							 	<PYTHONPATH>${project.build.directory}/python</PYTHONPATH>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
@@ -149,7 +149,7 @@
 							<executable>python</executable>
 							<workingDirectory>${project.build.directory}/python/src/ndvi</workingDirectory>
 							<environmentVariables>
-							 	<PYTHONPATH>/application/share/python</PYTHONUSERBASE>
+							 	<PYTHONPATH>/application/share/python</PYTHONPATH>
 							 </environmentVariables>
 							<arguments>
 								<argument>setup.py</argument>
