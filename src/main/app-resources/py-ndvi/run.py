@@ -30,10 +30,11 @@ for line in sys.stdin:
     local.path = res[0].rstrip('\n')
 
     # print the Landsat local path in the log
-    ciop.log('DEBUG', 'local path:' + local.path )    
+    ciop.log('DEBUG', 'local path:' + local.path)    
     
-    # create the output name 
-    output.name = output.path + '/' + os.path.splitext(os.path.basename(local.path))[0] + "_ndvi.tif"
+    # create the output name using the dc:identifier metadata field
+    identifier = ciop.casmeta("dc:identifier", line)[0].rstrip('\n')
+    output.name = output.path + '/' + identifier + "_ndvi.tif"
     
     # calculate the NDVI
     obj = ndvi.GDALCalcNDVI()
@@ -44,25 +45,28 @@ for line in sys.stdin:
     pub = ciop.publish(output.name)
 
     # create the NDVI result metadata information 
-    # using ciop.casmeta
-    metadata = [ "ical:dtstart=2001-01-10T14:00:00", 
-                "ical:dtend=2001-01-10T14:05:00",
-                "dc:identifier=mydataset",
-                "dct:spatial=MULTIPOLYGON(((25.55215 36.97701,24.740512 37.091395,24.496927 35.950137,25.284346 35.839142,25.55215 36.97701)))",
+    # using ciop.casmeta function to access the input product metadata
+    metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
+                "ical:dtend=" + ciop.casmeta("ical:dtend", line)[0].rstrip('\n'),
+                "dc:identifier=" + identifier + "_NDVI",
+                "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
                 "dclite4g:onlineResource=" + pub[0].rstrip()]
 
-    metadata = [ "ical:dtstart=2001-01-10T14:00:00",
-                "ical:dtend=2001-01-10T14:05:00",
-                "dc:identifier=mydataset",
-                "dct:spatial=MULTIPOLYGON(((25.55215 36.97701,24.740512 37.091395,24.496927 35.950137,25.284346 35.839142,25.55215 36.97701)))",
+    metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line)[0].rstrip('\n'), 
+                "ical:dtend=" + ciop.casmeta("ical:dtend", line)[0].rstrip('\n'),
+                "dc:identifier=" + identifier + "_NDVI",
+                "dct:spatial=" + ciop.casmeta("dct:spatial", line)[0].rstrip('\n'), 
                 "dclite4g:onlineResource=http://some.host.com/myproduct.tif"]   
  
-    ciop.log('DEBUG', 'Going to register')
+ 
+    ciop.log('DEBUG', 'Register the result in the sandbox catalogue')
 
+    # use ciop.register providing the sandbox local catalogue and 
+    # a series template
     ciop.register('http://localhost/catalogue/sandbox/rdf',
                     'file:///application/py-ndvi/etc/series.rdf',
                     metadata)
 
-    ciop.publish('/tmp/pippo.tif', metalink = True)
+    ciop.publish(output.name, metalink = True)
 
 ciop.log('INFO', 'Done my share of the work!')
