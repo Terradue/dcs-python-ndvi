@@ -10,12 +10,12 @@
       </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
-  <workflow id="wf" title="step" abstract="workflow">
+  <workflow id="Landsat_NDVI" title="Process NDVI over Landsat data" abstract="Demos Python to calculate NDVI using Landsat data">
     <workflowVersion>1.0</workflowVersion>
     <node id="node_ndvi">
       <job id="py-ndvi"/>
       <sources>
-      <source refid="string:list" >/tmp/L5043033_03319950627.img</source>
+      <source id="landsat" title="Landsat product reference" abstract="Landsat catalogue references" scope="runtime" refid="string:list" >http://catalogue.terradue.int/catalogue/search/LANDSAT_5_DEMO/L5043033_03319950627/rdf</source>
   </sources>
       <parameters>
 </parameters>

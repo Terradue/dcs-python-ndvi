@@ -16,8 +16,8 @@ import ndvi
 ciop.log('INFO', 'Calculating NDVI')
 
 # create a local output folder for the NDVI results
-output.path = os.environ['TMPDIR'] + '/output' 
-os.makedirs(output.path)
+output_path = os.environ['TMPDIR'] + '/' + 'output' 
+os.makedirs(output_path)
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
@@ -27,22 +27,22 @@ for line in sys.stdin:
     
     # ciop.copy extracts the path from the reference and downloads the Landsat product
     res = ciop.copy(line, os.environ['TMPDIR'])
-    local.path = res[0].rstrip('\n')
+    local_path = res[0].rstrip('\n')
 
     # print the Landsat local path in the log
-    ciop.log('DEBUG', 'local path:' + local.path)    
+    ciop.log('DEBUG', 'local path:' + local_path)    
     
     # create the output name using the dc:identifier metadata field
     identifier = ciop.casmeta("dc:identifier", line)[0].rstrip('\n')
-    output.name = output.path + '/' + identifier + "_ndvi.tif"
+    output_name = output_path + '/' + identifier + "_ndvi.tif"
     
     # calculate the NDVI
     obj = ndvi.GDALCalcNDVI()
-    obj.calc_ndvi(local.path, output.name)
+    obj.calc_ndvi(local_path, output_name)
 
     # use ciop.publish to publish the NDVI result 
     # use the URL returned by ciop.publish as the catalogue online resource info
-    pub = ciop.publish(output.name)
+    pub = ciop.publish(output_name)
 
     # create the NDVI result metadata information 
     # using ciop.casmeta function to access the input product metadata
@@ -67,6 +67,6 @@ for line in sys.stdin:
                     'file:///application/py-ndvi/etc/series.rdf',
                     metadata)
 
-    ciop.publish(output.name, metalink = True)
+    ciop.publish(output_name, metalink = True)
 
 ciop.log('INFO', 'Done my share of the work!')
