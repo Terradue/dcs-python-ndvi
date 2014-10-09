@@ -26,7 +26,7 @@ Here's how this simple workflow is defined:
 
 As source, this node uses a comma-separated list of catalogue references, e.g.:
 
-.. code-block:: bash
+.. code-block:: example
 
   http://catalogue.terradue.int/catalogue/search/LANDSAT_SAMPLES/LT50430331995178XXX03/rdf
 
@@ -40,7 +40,7 @@ Application installation
 
 All the application files are available on a GitHub repository that can be cloned on the Sandbox with:
 
-.. code-block:: bash
+.. code-block:: console
 
   cd
   git clone git@github.com:Terradue/dcs-python-ndvi.git
@@ -48,25 +48,25 @@ All the application files are available on a GitHub repository that can be clone
   
 Install the *tree* utility to inspect the application structure with
 
-.. code-block:: bash
+.. code-block:: console
 
   sudo yum install -y tree
 
 Then, do:
 
-.. code-block:: bash
+.. code-block:: console
 
   tree
   
 The application resources mentioned so far are under the path:
 
-.. code-block:: bash
+.. code-block:: console
   
   src/main/app-resources
 
 while the Python NDVI package source is under:
 
-.. code-block:: bash
+.. code-block:: console
   
   src/main/python
   
@@ -77,13 +77,13 @@ To build the application, use maven [#f1]_ to:
 
 To do so, from the cloned repository folder where the pom.xml is (typically in ~/dcs-python-ndvi), simply run:
 
-.. code-block:: bash
+.. code-block:: console
 
   mvn install
   
 Check the contest of the installed application with:
 
-.. code-block:: bash
+.. code-block:: console
 
   tree /application
   
@@ -92,13 +92,13 @@ Application check
   
 The Application Descriptor file can be checked with:
 
-.. code-block:: bash
+.. code-block:: console
 
   ciop-appcheck
   
 If the Application Descriptor is valid, the output is:
 
-.. code-block:: bash
+.. code-block:: console
 
   /application/application.xml validates
 
@@ -118,7 +118,7 @@ Testing manually the workflow with ciop-simjob
 
 Get the lists of nodes with: 
 
-.. code-block:: bash
+.. code-block:: console
 
   ciop-simjob -n
   
@@ -126,7 +126,7 @@ That will report *node_ndvi*
 
 Trigger its execution with:
 
-.. code-block:: bash
+.. code-block:: console
 
   ciop-simjob -f node_ndvi
   
@@ -140,7 +140,7 @@ The node_ndvi will:
 Testing the workflow automatic execution with ciop-simwf
 --------------------------------------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
   ciop-simwf
   
