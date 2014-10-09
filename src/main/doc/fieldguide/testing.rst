@@ -19,7 +19,7 @@ This application's workflow has a single node. Its identifer is set to *node_ndv
 
 Here's how this simple workflow is defined:
 
-.. literalinclude:: /field/vegetation/lib_python_ndvi/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 13-23
