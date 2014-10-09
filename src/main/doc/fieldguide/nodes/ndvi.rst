@@ -11,7 +11,7 @@ A node requires a job template including:
 * Default parameters
 * Default configuration 
 
-.. literalinclude:: ../../../app-resources/application.xml
+.. literalinclude:: /field/vegetation/lib_python_ndvi/src/main/app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 3-12
