@@ -12,10 +12,10 @@ Contents:
    
    What you will learn <learn>
    Addressing a scientific and processing goal <goal>
+   Data preparation <data>
    Workflow design <workflow>
    Processing nodes design <nodes/index>
    Application testing <testing>
-   Data preparation <data>
 ..   Application integration <integration>
 ..   Application exploitation <exploitation>
 ..   Going further <further>
