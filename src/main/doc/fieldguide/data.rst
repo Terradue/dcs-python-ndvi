@@ -13,7 +13,7 @@ Copying Landsat sample products to the Sandbox
 
 Log on the Sandbox shell and run:
 
-.. code::bash
+.. code-block:: bash
 
   curl http://landsat.usgs.gov/documents/L5_30m19910616.tgz | tar xvfz -
   curl http://landsat.usgs.gov/documents/L5_30m19950627.tgz | tar xvfz -
