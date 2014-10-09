@@ -11,7 +11,7 @@ A node requires a job template including:
 * Default parameters
 * Default configuration 
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 3-12
