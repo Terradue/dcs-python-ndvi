@@ -79,7 +79,7 @@ The simple workflow can be represented as:
   
   stop
 
-The *node_ndvi* is described in details in :doc:`/field/vegetation/lib_python_ndvi/nodes/index`
+The *node_ndvi* is described in details in :doc:`/field/vegetation/lib_python_ndvi/src/main/doc/fieldguide/nodes/index`
 
 .. [#f1] `GDAL Geospatial Data Abstraction Library <http://www.gdal.org/>`_
 
