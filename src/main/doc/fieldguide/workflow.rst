@@ -33,10 +33,6 @@ and GDAL Python libraries [#f2]_ to:
 
 * implement a Python module to calculate the NDVI GeoTIFF 
 
-.. [#f1] `GDAL Geospatial Data Abstraction Library <http://www.gdal.org/>`_
-
-.. [#f2] `GDAL Geospatial Data Abstraction Library Python package <https://pypi.python.org/pypi/GDAL/>`_
-
 Workflow design
 ***************
 
@@ -85,3 +81,6 @@ The simple workflow can be represented as:
 
 The *node_ndvi* is described in details in :doc:`/field/vegetation/lib_python_ndvi/nodes/index`
 
+.. [#f1] `GDAL Geospatial Data Abstraction Library <http://www.gdal.org/>`_
+
+.. [#f2] `GDAL Geospatial Data Abstraction Library Python package <https://pypi.python.org/pypi/GDAL/>`_
