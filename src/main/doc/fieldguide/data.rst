@@ -13,7 +13,7 @@ Copying Landsat sample products to the Sandbox
 
 Log on the Sandbox shell and run:
 
-.. code-block:: bash
+.. code-block:: console
 
   curl http://landsat.usgs.gov/documents/L5_30m19910616.tgz | tar xvfz -
   curl http://landsat.usgs.gov/documents/L5_30m19950627.tgz | tar xvfz -
@@ -29,7 +29,7 @@ Use GDAL to convert the several GeoTIFF files (one for each Landsat band) to ERD
 
 On the Sandbox shell run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   gdalbuildvrt -separate myvrt L5043033_03319950627_B10.TIF \
     L5043033_03319950627_B20.TIF \
@@ -41,7 +41,7 @@ On the Sandbox shell run the command:
   
 and finally:
 
-.. code-block:: bash
+.. code-block:: console
   
   gdal_translate -of HFA myvrt L5043033_03319950627.img
   
@@ -52,13 +52,13 @@ Copying the ERDAS .img products to S3 storage
 
 On the Sandbox shell run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   s3cmd put *.img s3://<your_laboratory>-private/data/
   
 List the uploaded files:
 
-.. code-block:: bash
+.. code-block:: console
 
   s3cmd ls s3://<your_laboratory>-private/data/
   
