@@ -11,13 +11,13 @@ The list of products used as test data is:
 
   Acquired June 16, 1991: L5 TM 30-meter thermal - .tgz (175 MB)
 
-* Acquired June 27, 1995: L5 TM 30-meter thermal - .tgz (171 MB)
+  Acquired June 27, 1995: L5 TM 30-meter thermal - .tgz (171 MB)
 
 * Landsat 7 ETM+
 
   Acquired August 17, 1999: L7 ETM+ 30-meter thermal - .tgz (316 MB)
 
-* Acquired April 22, 2009: L7 ETM+ 30-meter thermal - .tgz (274 MB)
+  Acquired April 22, 2009: L7 ETM+ 30-meter thermal - .tgz (274 MB)
 
 Software and COTS
 *****************
