@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dclite4g:Series>
+  <dc:identifier>LANDSAT_SAMPLES</dc:identifier>
+  <dc:title>Landsat 5/7 sample data</dc:title>
+  <dct:abstract>Landsat 5 was a low Earth orbit satellite launched on March 1, 1984 to collect imagery of the surface of Earth. A continuation of the Landsat Program, Landsat 5 was jointly managed by the U.S. Geological Survey (USGS) and the National Aeronautics and Space Administration (NASA). Data from Landsat 5 was collected and distributed from the USGS's Center for Earth Resources Observation and Science (EROS). Landsat 7, launched on April 15, 1999, is the seventh satellite of the Landsat program. Landsat 7's primary goal is to refresh the global archive of satellite photos, providing up-to-date and cloud-free images. The Landsat Program is managed and operated by the USGS, and data from Landsat 7 is collected and distributed by the USGS.</dct:abstract>
+  <eop:platform>LANDSAT-5</eop:platform>
+  <eop:sensor>Thematic Mapper</eop:sensor>
+  <dct:spatial>MULTIPOLYGON(((-180 -90,-180 90,180 90,180 -90,-180 -90)))</dct:spatial>
+  <dc:subject>EARTH SCIENCE SPECTRAL/ENGINEERING INFRARED WAVELENGTHS INFRARED IMAGERY; EARTH SCIENCE SPECTRAL/ENGINEERING VISIBLE WAVELENGTHS VISIBLE IMAGERY; LANDSAT-5; THERMAL INFRARED SENSOR; CWIC CEOS WGISS INTEGRATED CATALOG; Inpe; Inpe/dgi; Imagery; Landsat-5; Mss; Radiance; Radiance Or Imagery; Remote Sensing; Satellite; Visible Imagery; Visible Wavelengths; IMAGERY/BASE MAPS/EARTH COVER; </dc:subject>
+  <dc:format>ERDAS</dc:format>
+</dclite4g:Series>
