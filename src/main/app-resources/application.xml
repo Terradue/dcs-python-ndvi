@@ -2,7 +2,7 @@
 <application id="app">
   <jobTemplates>
     <jobTemplate id="py-ndvi">
-      <streamingExecutable>/application/py-ndvi/run.py</streamingExecutable>
+      <streamingExecutable>/application/py-ndvi/run</streamingExecutable>
       <defaultParameters>
   </defaultParameters>
       <defaultJobconf>
