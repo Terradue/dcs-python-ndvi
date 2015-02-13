@@ -17,6 +17,12 @@ Used in Cluster mode (collections of virtual machines), it supports the deployme
 
 Log on the developer sandbox and run these commands in a shell:
 
+* Install gdal for Python
+
+```bash
+sudo conda install gdal
+```
+
 * Install **cioppy**
 
 ```bash
