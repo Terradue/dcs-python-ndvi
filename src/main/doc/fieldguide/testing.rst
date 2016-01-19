@@ -107,20 +107,20 @@ Application submission
 
 The application can be tested by:
 
-* Manually submitting every single job of the workflow with ciop-simjob [#f2]_
-* Automatically submitting the complete workflow with ciop-simwf [#f3]_
-* Submitting a Web Processing Service request
+* Submitting every single job of the workflow with ciop-run [#f2]_,
+* Submitting the complete workflow with ciop-run [node-id] [#f2]_,
+* Submitting a Web Processing Service request.
 
 With this application, there's only one node so the first two options are quite similar.
 
-Testing manually the workflow with ciop-simjob
-----------------------------------------------
+Testing a node of the workflow
+------------------------------
 
 Get the lists of nodes with: 
 
 .. code-block:: console
 
-  ciop-simjob -n
+  ciop-run -n
   
 That will report *node_ndvi*
 
@@ -128,7 +128,7 @@ Trigger its execution with:
 
 .. code-block:: console
 
-  ciop-simjob -f node_ndvi
+  ciop-run node_ndvi
   
 The node_ndvi will:
 
@@ -137,12 +137,12 @@ The node_ndvi will:
 * Copy the NDVI GeoTIFF file to S3 storage
 * Register it in the Sandbox catalogue 
 
-Testing the workflow automatic execution with ciop-simwf
---------------------------------------------------------
+Testing the entire workflow execution
+-------------------------------------
 
 .. code-block:: console
 
-  ciop-simwf
+  ciop-run
   
 Wait for the workflow execution, the same results are produced.
 
@@ -154,6 +154,5 @@ Go to the Sandbox dashboard (http://<sandbox IP>/dashboard). On the **Invoke** t
 .. rubric:: Footnotes
 
 .. [#f1] `Apache maven <http://maven.apache.org/>`_
-.. [#f2] :doc:`ciop-simjob man page </reference/man/bash_commands_functions/simulation/ciop-simjob>`
-.. [#f3] :doc:`ciop-simwf man page </reference/man/bash_commands_functions/simulation/ciop-simwf>`
+.. [#f2] :doc:`ciop-run man page </reference/man/bash_commands_functions/simulation/ciop-run>`
 

@@ -37,7 +37,7 @@ mvn install
 Run this command in a shell:
 
 ```bash
-ciop-simwf
+ciop-run
 ```
 
 Or invoke the Web Processing Service via the Sandbox dashboard.
