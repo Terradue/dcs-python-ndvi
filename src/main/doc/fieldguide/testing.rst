@@ -43,7 +43,7 @@ All the application files are available on a GitHub repository that can be clone
 .. code-block:: console
 
   cd
-  git clone git@github.com:Terradue/dcs-python-ndvi.git
+  git clone https://github.com/Terradue/dcs-python-ndvi.git
   cd dcs-python-ndvi
   
 Install the *tree* utility to inspect the application structure with

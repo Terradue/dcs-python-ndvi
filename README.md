@@ -17,17 +17,23 @@ Used in Cluster mode (collections of virtual machines), it supports the deployme
 
 Log on the developer sandbox and run these commands in a shell:
 
+* Install Anaconda
+
+```bash
+sudo yum install -y miniconda-3.8.3
+```
+
 * Install **cioppy**
 
 ```bash
-sudo yum install -y cioppy
+sudo conda install -y cioppy
 ```
 
 * Install this application
 
 ```bash
 cd
-git clone git@github.com:Terradue/dcs-python-ndvi.git
+git clone https://github.com/Terradue/dcs-python-ndvi.git
 cd dcs-python-ndvi
 mvn install
 ```

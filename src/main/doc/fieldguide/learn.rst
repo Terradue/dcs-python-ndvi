@@ -18,7 +18,7 @@ To deploy the tutorial on a Developer Sandbox:
 .. code-block:: console
 
   cd ~
-  git clone git@github.com:Terradue/dcs-python-ndvi.git
+  git clone https://github.com/Terradue/dcs-python-ndvi.git
   cd dcs-python-ndvi
   mvn install
   
