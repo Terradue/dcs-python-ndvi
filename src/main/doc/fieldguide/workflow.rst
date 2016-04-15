@@ -4,9 +4,7 @@ Workflow design
 Data 
 ****
 
-You will use the Landsat 5&7 sample products made available by the `USGS <http://www.usgs.gov/>`_ at `<http://landsat.usgs.gov/product_samples.php>`_
-
-The list of products used as test data is:
+You will use the Landsat 5&7 sample products: 
 
 * Landsat 5 TM
 

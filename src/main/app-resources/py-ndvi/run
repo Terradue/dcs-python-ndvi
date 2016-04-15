@@ -5,7 +5,7 @@ import os
 import sys
 
 # add cioppy to the search path
-sys.path.append('/usr/lib/ciop/python/')
+#sys.path.append('/usr/lib/ciop/python/')
 import cioppy
 ciop = cioppy.Cioppy() 
 
@@ -47,23 +47,6 @@ for line in sys.stdin:
     # use ciop.publish to publish the NDVI result 
     # use the URL returned by ciop.publish as the catalogue online resource info
     pub = ciop.publish(output_name, driver='s3')
-
-    ciop.log('DEBUG', pub)
-    # create the NDVI result metadata information 
-    # using ciop.casmeta function to access the input product metadata
-    metadata = [ "ical:dtstart=" + ciop.casmeta("ical:dtstart", line), 
-                "ical:dtend=" + ciop.casmeta("ical:dtend", line),
-                "dc:identifier=" + identifier + "_NDVI",
-                "dct:spatial=" + ciop.casmeta("dct:spatial", line), 
-                "dclite4g:onlineResource=" + pub]
-
- 
-    ciop.log('DEBUG', 'Register the result in the sandbox catalogue')
-    # use ciop.register providing the sandbox local catalogue and 
-    # a series template
-    ciop.register('http://localhost/catalogue/sandbox/rdf',
-                    'file:///application/py-ndvi/etc/series.rdf',
-                    metadata)
 
     ciop.publish(output_name, metalink=True)
 

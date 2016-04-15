@@ -15,7 +15,7 @@ Each node of the DAG has:
 The node_ndvi node
 ------------------
 
-This application's workflow has a single node. Its identifer is set to *node_ndvi* and it instantiates the :doc:`py-job <nodes/ndvi>` job template.
+This application's workflow has a single node. Its identifer is set to *node_ndvi* and it instantiates the :doc:`py-ndvi <nodes/ndvi>` job template.
 
 Here's how this simple workflow is defined:
 
@@ -28,15 +28,22 @@ As source, this node uses a comma-separated list of catalogue references, e.g.:
 
 .. code-block:: example
 
-  http://catalogue.terradue.int/catalogue/search/LANDSAT_SAMPLES/LT50430331995178XXX03/rdf
+  s3://<your_laboratory>-private/data/LT50430331991167AAA02.img,s3://<your_laboratory>-private/data/LT50430331995178XXX03.img,s3://<your_laboratory>-private/data/LE70430331999229EDC00.img,s3://<your_laboratory>-private/data/LE70430332009112EDC00.img
 
-Change this value to one (or more) of the Landsat sample products you have in the Sandbox catalogue by going to http://<sandbox ip>/catalogue/search and copying one the dataset RDF URLs.
+Change this value and set the value for the S3 bucket name.
 
 Testing the application
 -----------------------
 
 Application installation
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install the dependencies:
+
+.. code-block:: console
+
+  sudo yum install miniconda-3.8.3
+  conda install cioppy
 
 All the application files are available on a GitHub repository that can be cloned on the Sandbox with:
 
@@ -107,20 +114,20 @@ Application submission
 
 The application can be tested by:
 
-* Manually submitting every single job of the workflow with ciop-simjob [#f2]_
-* Automatically submitting the complete workflow with ciop-simwf [#f3]_
+* Manually submitting every single job of the workflow with ciop-run [#f2]_
+* Automatically submitting the complete workflow
 * Submitting a Web Processing Service request
 
 With this application, there's only one node so the first two options are quite similar.
 
-Testing manually the workflow with ciop-simjob
-----------------------------------------------
+Testing manually the workflow with ciop-run
+-------------------------------------------
 
 Get the lists of nodes with: 
 
 .. code-block:: console
 
-  ciop-simjob -n
+  ciop-run -n
   
 That will report *node_ndvi*
 
@@ -128,32 +135,32 @@ Trigger its execution with:
 
 .. code-block:: console
 
-  ciop-simjob -f node_ndvi
+  ciop-run node_ndvi
+
+.. tip:: tap twice TAB to get the node name auto-completion 
   
 The node_ndvi will:
 
 * Retrieve the Landsat product from the S3 storage using the online resource value found in the Sandbox catalogue
 * Produce the NDVI GeoTIFF file  
 * Copy the NDVI GeoTIFF file to S3 storage
-* Register it in the Sandbox catalogue 
 
-Testing the workflow automatic execution with ciop-simwf
---------------------------------------------------------
+Testing the workflow automatic execution with ciop-run
+------------------------------------------------------
 
 .. code-block:: console
 
-  ciop-simwf
+  ciop-run
   
 Wait for the workflow execution, the same results are produced.
 
 Testing the workflow using WPS
 ------------------------------
 
-Go to the Sandbox dashboard (http://<sandbox IP>/dashboard). On the **Invoke** tab, you can provide one or more Landsat products catalogue entries and submit the processing request.
+Go to the Sandbox dashboard (http://<sandbox IP>/dashboard). On the **Invoke** tab, you can provide one or more Landsat products private S3 URLs and submit the processing request.
 
 .. rubric:: Footnotes
 
 .. [#f1] `Apache maven <http://maven.apache.org/>`_
-.. [#f2] :doc:`ciop-simjob man page </reference/man/bash_commands_functions/simulation/ciop-simjob>`
-.. [#f3] :doc:`ciop-simwf man page </reference/man/bash_commands_functions/simulation/ciop-simwf>`
+.. [#f2] :doc:`ciop-run man page </reference/man/bash_commands_functions/simulation/ciop-run>`
 
