@@ -4,7 +4,7 @@ Data preparation
 The data preparation step foresees:
 
 * Copying the Landsat sample products from the S3 storage to the Sandbox
-* The conversion of the multiple GeoTFF files that compose a Landsat product into a single ERDAS .img product
+* The conversion of all four Landsat products from multiple GeoTFF files into a single ERDAS .img product
 * Repeat this for the four Landsat products
 * Copying the ERDAS .img products to the Laboratory S3 storage
 

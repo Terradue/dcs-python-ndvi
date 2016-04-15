@@ -43,7 +43,13 @@ Install the dependencies:
 .. code-block:: console
 
   sudo yum install miniconda-3.8.3
-  conda install cioppy
+  sudo conda install cioppy
+
+Set the environment to use the installed Python:
+
+.. code-block:: console
+
+  export PATH=/opt/anaconda/bin/:$PATH
 
 All the application files are available on a GitHub repository that can be cloned on the Sandbox with:
 
