@@ -3,9 +3,9 @@
 import site
 import os
 import sys
+from os.path import basename
 
 # add cioppy to the search path
-#sys.path.append('/usr/lib/ciop/python/')
 import cioppy
 ciop = cioppy.Cioppy() 
 
@@ -34,7 +34,7 @@ for line in sys.stdin:
     ciop.log('DEBUG', 'local path:' + local_path)    
     
     # create the output name using the dc:identifier metadata field
-    identifier = ciop.casmeta("dc:identifier", line)
+    identifier =  os.path.splitext(basename(local_path))[0] 
     ciop.log('DEBUG', 'identifier: ' + identifier)
 
     output_name = os.path.join(output_path, identifier + '_ndvi.tif')
