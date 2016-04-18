@@ -24,11 +24,7 @@ Software and COTS
 GDAL and GDAL Python
 --------------------
 
-You will use GDAL [#f1]_ to:
-
-* pre-process each of the Landsat sample products to convert from a multi GeoTIFF files to a single ERDAS .img product 
-
-and GDAL Python libraries [#f2]_ to: 
+You will use  GDAL [#f1]_ Python libraries [#f2]_ to: 
 
 * implement a Python module to calculate the NDVI GeoTIFF 
 
@@ -37,7 +33,7 @@ Workflow design
 
 The application's data pipeline activities can be defined as follows:
 
-Use the Python NDVI package to apply the band arithmetic expression to calculate the NDVI to all Landsat products passed as references to the Sandbox catalogue.
+Use the Python NDVI package to apply the band arithmetic expression to calculate the NDVI to all Landsat products passed as references to Terradue Cloud Platform catalogue.
 
 .. uml::
 
