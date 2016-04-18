@@ -4,6 +4,8 @@ import site
 import os
 import sys
 from os.path import basename
+import atexit
+import tarfile
 
 # add cioppy to the search path
 import cioppy
@@ -14,22 +16,41 @@ site.addsitedir('/application/share/python/lib')
 # import the ndvi package 
 import ndvi
 
-# write a log entry
-ciop.log('INFO', 'Calculating NDVI')
+# define the exit codes
+SUCCESS = 0
+ERR_NOINPUT = 4
 
-# create a local output folder for the NDVI results
-output_path = os.path.join(ciop.tmp_dir, 'output')
-os.makedirs(output_path)
+# add a trap to exit gracefully
+def clean_exit(exit_code):
+  log_level = 'INFO'
+  if exit_code != SUCCESS:
+    log_level = 'ERROR'  
+   
+  msg = {SUCCESS: 'Processing successfully concluded',
+    ERR_NOINPUT: 'No input provided'}
+ 
+  ciop.log(log_level, msg[exit_code])  
 
-# input comes from STDIN (standard input)
-for line in sys.stdin:
+
+def main():
+
+  # write a log entry
+  ciop.log('INFO', 'Calculating NDVI')
+
+  # create a local output folder for the NDVI results
+  output_path = os.path.join(ciop.tmp_dir, 'output')
+  os.makedirs(output_path)
+
+  # input comes from STDIN (standard input)
+  for line in sys.stdin:
 
     # line contains a reference to a catalogue entry
     ciop.log('INFO', 'input: ' + line)
     
     # ciop.copy extracts the path from the reference and downloads the Landsat product
     local_path = ciop.copy(line, ciop.tmp_dir)
-
+    assert(local_path)
+     
     # print the Landsat local path in the log
     ciop.log('DEBUG', 'local path:' + local_path)    
     
@@ -39,10 +60,26 @@ for line in sys.stdin:
 
     output_name = os.path.join(output_path, identifier + '_ndvi.tif')
     ciop.log('DEBUG', 'output_name: ' + output_name)
+ 
+    # extract the bands for the NDVI calculation (bands 3 - red and 4 - NIR)
+    tar = tarfile.open(local_path, "r")
+
+    # red band
+    red_item = [item for item in tar.getnames() if item.endswith("_B3.TIF") and "_GM_" not in item][0] 
+    tar.extract(red_item, ciop.tmp_dir)
+    red_band = os.path.join(ciop.tmp_dir, red_item)
+    ciop.log('DEBUG', 'red_band: ' + red_band)
+
+    # NIR band
+    nir_item = [item for item in tar.getnames() if item.endswith("_B4.TIF") and "_GM_" not in item][0]
+    tar.extract(nir_item, ciop.tmp_dir)
+    nir_band = os.path.join(ciop.tmp_dir, nir_item)
+    ciop.log('DEBUG', 'nir_band: ' + nir_band)
+    tar.extract(tar.getmembers()[3])
 
     # calculate the NDVI
     obj = ndvi.GDALCalcNDVI()
-    obj.calc_ndvi(local_path, output_name)
+    obj.calc_ndvi(red_band, nir_band, output_name)
 
     # use ciop.publish to publish the NDVI result 
     # use the URL returned by ciop.publish as the catalogue online resource info
@@ -50,4 +87,14 @@ for line in sys.stdin:
 
     ciop.publish(output_name, metalink=True)
 
-ciop.log('INFO', 'Done my share of the work!')
+  ciop.log('INFO', 'Done my share of the work!')
+
+
+try:
+  main()
+except SystemExit as e:
+  if e.args[0]:
+    clean_exit(e.args[0])
+  raise
+else:
+  atexit.register(clean_exit, 0)

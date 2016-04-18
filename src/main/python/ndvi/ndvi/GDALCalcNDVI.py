@@ -37,16 +37,21 @@ class GDALCalcNDVI(object):
         
     # The function which loops through the input image and
     # calculates the output NDVI value to be outputted.    
-    def calc_ndvi(self, file_path, out_file_path):
-        # Open the inputted dataset
-        dataset = gdal.Open(file_path, gdal.GA_ReadOnly)
+    def calc_ndvi(self, red_band_path, nir_band_path, out_file_path):
+        # Open the inputted red and NIR dataset
+        red_dataset = gdal.Open(red_band_path, gdal.GA_ReadOnly)
+        nir_dataset = gdal.Open(nir_band_path, gdal.GA_ReadOnly)
         # Check the dataset was successfully opened
-        if dataset is None:
-            print "The dataset could not openned"
+        if red_dataset is None :
+            print "The red dataset could not openned"
+            sys.exit(-1)
+
+        if nir_dataset is None :
+            print "The NIR dataset could not openned"
             sys.exit(-1)
 
         # Create the output dataset
-        out_dataset = self.create_output_image(out_file_path, dataset)
+        out_dataset = self.create_output_image(out_file_path, red_dataset)
         # Check the datasets was successfully created.
         if out_dataset is None:
             print 'Could not create output image'
@@ -57,8 +62,8 @@ class GDALCalcNDVI(object):
         # in this case for the Landsat sensor. RED = 3
         # and NIR = 4 this might need to be changed if 
         # data from another sensor was used.
-        red_band = dataset.GetRasterBand(3) # RED BAND
-        nir_band = dataset.GetRasterBand(4) # NIR BAND
+        red_band = red_dataset.GetRasterBand(1) # RED BAND
+        nir_band = nir_dataset.GetRasterBand(1) # NIR BAND
        
         num_lines = red_band.YSize 
         # Loop through each line in turn.
