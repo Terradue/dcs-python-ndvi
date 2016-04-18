@@ -1,9 +1,9 @@
 Node ndvi
 =========
 
-This is the first node of the workflow. As such, the platform takes cares of providing the inputs to the streaming executable: the list of Landsat catalogue entries you created earlier. 
+This is the first node of the workflow. As such, the platform takes cares of providing the inputs to the streaming executable: the list of Landsat catalogue entries. 
 
-.. tip:: ciop-copy can handle catalogue entries and download the datasets using the online resources in the metadata
+.. tip:: opensearch-client can resolve the online resources of the EO dataset of the catalogue entries and ciop-copy download the datasets using the resolved online resources
 
 A node requires a job template including:
 
