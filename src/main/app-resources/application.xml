@@ -15,7 +15,7 @@
     <node id="node_ndvi">
       <job id="py-ndvi"/>
       <sources>
-      <source id="landsat" title="Landsat product reference" abstract="Landsat catalogue references" scope="runtime" refid="string:list">s3://landsat-samples/LT50430331995178XXX03.tar.gz,s3://landsat-samples/LT50430331991167AAA02.tar.gz,s3://landsat-samples/LE70430332009112EDC00.tar.gz,s3://landsat-samples/LE70430331999229EDC00.tar.gz</source>
+      <source id="landsat" title="Landsat product reference" abstract="Landsat catalogue references" scope="runtime" refid="string:list">s3://eo-samples/LT50430331995178XXX03.tar.gz,s3://eo-samples/LT50430331991167AAA02.tar.gz,s3://eo-samples/LE70430332009112EDC00.tar.gz,s3://eo-samples/LE70430331999229EDC00.tar.gz</source>
   </sources>
       <parameters>
 </parameters>

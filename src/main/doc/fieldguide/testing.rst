@@ -163,7 +163,24 @@ Wait for the workflow execution, the same results are produced.
 Testing the workflow using WPS
 ------------------------------
 
-Go to the Sandbox dashboard (http://<sandbox IP>/dashboard). On the **Invoke** tab, you can provide one or more Landsat products private S3 URLs and submit the processing request.
+Go to the Sandbox dashboard (http://<sandbox IP>/dashboard). On the **Invoke** tab, you can provide one or more Landsat products S3 URLs:
+
+* s3://eo-samples/LE70430331999229EDC00.tar.gz
+* s3://eo-samples/LE70430332009112EDC00.tar.gz
+* s3://eo-samples/LT50430331991167AAA02.tar.gz
+* s3://eo-samples/LT50430331995178XXX03.tar.gz
+
+and submit the processing request as shown in the screenshot below:
+
+.. figure:: includes/wps_gui1.png
+   :scale: 70 %
+   :alt: WPS Service
+
+After a few minutes, the results are available as show below:
+
+.. figure:: includes/wps_gui2.png
+   :scale: 70 %
+   :alt: WPS Service with the results
 
 .. rubric:: Footnotes
 
