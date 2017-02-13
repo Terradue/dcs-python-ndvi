@@ -20,7 +20,7 @@ Log on the developer sandbox and run these commands in a shell:
 * Install Anaconda
 
 ```bash
-sudo yum install -y miniconda-3.8.3
+sudo yum install -y miniconda
 ```
 
 * Install **cioppy**
